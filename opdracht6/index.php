@@ -33,6 +33,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            color: #FF8400;
+            font-family: 'Bangers', 'arial';
+            font-size: 35px;
+            font-weight: 700;
         }
 
         #list_content ul li a {
@@ -55,12 +59,12 @@
         <div id="list_content">
             <ul>
                 <?php
-                    $query = "SELECT omschrijving FROM leefgebied";
+                    $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied)";                    
                     $stmt = $con->prepare($query);
                     $stmt->execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
-                        echo "<li><a href='https://www.google.nl/search?q=" . $row['omschrijving'] . "&tbm=isch'>" . $row['omschrijving'] . "</a></li>";
+                        echo "<li><a href='https://www.google.nl/search?q=" . $row['omschrijving'] . "&tbm=isch'>" . $row['omschrijving'] . "</a> - <a href='https://www.google.nl/search?q=" . $row['soort'] . "&tbm=isch'>" . $row['soort'] . "</a></li>";
                     }
                 ?>
             </ul>
