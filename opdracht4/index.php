@@ -9,6 +9,7 @@
 <head>
     <title>opdracht 4</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
         #wrapper {
             margin: auto;
             max-width: 1200px;
@@ -37,7 +38,7 @@
         #list_content ul li a {
             text-decoration: none;
             color: #FF8400;
-            font-family: arial;
+            font-family: 'Bangers', 'arial';
             font-size: 35px;
             font-weight: 700;
         }
