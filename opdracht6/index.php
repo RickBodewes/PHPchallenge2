@@ -1,7 +1,5 @@
 <?php
     require "../increq/PDOcon.php";
-
-    $apen = array("Baviaan", "Guereza", "Langoer", "Neusaap", "Tamarin", "Brulaap", "Halfaap", "Mandril");
 ?>
 <!DOCTYPE html>
 <html>
