@@ -24,7 +24,7 @@ USE `apen` ;
 DROP TABLE IF EXISTS `apen`.`aap` ;
 
 CREATE TABLE IF NOT EXISTS `apen`.`aap` (
-  `idaap` INT NOT NULL,
+  `idaap` INT NOT NULL AUTO_INCREMENT,
   `soort` VARCHAR(45) NULL,
   PRIMARY KEY (`idaap`))
 ENGINE = InnoDB;
@@ -36,7 +36,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `apen`.`leefgebied` ;
 
 CREATE TABLE IF NOT EXISTS `apen`.`leefgebied` (
-  `idleefgebied` INT NOT NULL,
+  `idleefgebied` INT NOT NULL AUTO_INCREMENT,
   `omschrijving` VARCHAR(45) NULL,
   PRIMARY KEY (`idleefgebied`))
 ENGINE = InnoDB;
@@ -75,23 +75,23 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `apen`;
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (1, 'Baviaan');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (2, 'Guereza');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (3, 'Langoer');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (4, 'Neusaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (5, 'Tamarin');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (6, 'Brulaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (7, 'Halfaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (8, 'Mandril');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (9, 'Oeakari');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (10, 'Faunaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (11, 'Hoelman');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (12, 'Meerkat');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (13, 'Oormaki');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (14, 'Gorilla');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (15, 'Kuifaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (16, 'Mensaap');
-INSERT INTO `apen`.`aap` (`idaap`, `soort`) VALUES (17, 'Spinaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Baviaan');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Guereza');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Langoer');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Neusaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Tamarin');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Brulaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Halfaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Mandril');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Oeakari');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Faunaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Hoelman');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Meerkat');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Oormaki');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Gorilla');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Kuifaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Mensaap');
+INSERT INTO `apen`.`aap` (`soort`) VALUES ('Spinaap');
 
 COMMIT;
 
@@ -101,16 +101,16 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `apen`;
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (1, 'Europa');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (2, 'West-Azie');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (3, 'Oost-Azie');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (4, 'Zuid-Azie');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (5, 'Noord-Azie');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (6, 'Noord-Amerika');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (7, 'Zuid-Amerika');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (8, 'Noord-Afrika');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (9, 'Zuid-Afrika');
-INSERT INTO `apen`.`leefgebied` (`idleefgebied`, `omschrijving`) VALUES (10, 'Midden-Afrika');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Europa');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('West-Azie');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Oost-Azie');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Zuid-Azie');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Noord-Azie');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Noord-Amerika');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Zuid-Amerika');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Noord-Afrika');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Zuid-Afrika');
+INSERT INTO `apen`.`leefgebied` (`omschrijving`) VALUES ('Midden-Afrika');
 
 COMMIT;
 
