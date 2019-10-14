@@ -3,9 +3,9 @@
 
     if(isset($_GET['aapsoort'])){
         $value = $_GET['aapsoort'];
-        $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied) WHERE aap.soort = :aapsoort";                     
+        $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied) WHERE aap.soort LIKE :aapsoort";                     
         $stmt = $con->prepare($query);
-        $stmt->bindvalue(':aapsoort', $value, PDO::PARAM_STR);
+        $stmt->bindvalue(':aapsoort', '%'.$value.'%', PDO::PARAM_STR);
     }else{
         $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied)";                    
         $stmt = $con->prepare($query);
@@ -17,7 +17,7 @@
 <html>
 
 <head>
-    <title>opdracht 7</title>
+    <title>opdracht 8</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
 
