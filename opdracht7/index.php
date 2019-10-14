@@ -75,7 +75,7 @@
         </div>
         <div id="form">
             <form method="get">
-                <input type="text" name="aapsoort" required>
+                <input type="text" name="aapsoort">
                 <input type="submit">
             </form>
         </div>
