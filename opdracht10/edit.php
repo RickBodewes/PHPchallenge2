@@ -34,7 +34,7 @@
             $stmt->bindvalue(':leefgebiedid', $habitatID);
             $stmt->execute();
         }
-            
+        header("location: index.php");
 
 
     }

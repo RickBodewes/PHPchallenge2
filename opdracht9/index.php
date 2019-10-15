@@ -30,7 +30,7 @@
                 $stmt->bindvalue(':leefgebiedid', $habitatID);
                 $stmt->execute();
             }
-            
+            header("location: index.php");
         }else{
             echo "dit soort aap bestaat al in deze database";
         }
@@ -61,6 +61,14 @@
             text-decoration: none;
             color: black;
         }
+        
+        #scrollBox{
+            height: 200px;
+            width: 300px;
+            border: solid 1px black;
+            overflow: scroll;
+            margin: 10px 0;
+        }
 
     </style>
 </head>
@@ -69,8 +77,9 @@
     <div id="wrapper">
         <form method="post">
             <input type="text" name="aapnaam" required>
-            <ul>
-                <?php
+            <div id="scrollBox">
+                <ul>
+                    <?php
                     $i = 0;
                     $query = "SELECT * FROM leefgebied";
                     $stmt = $con->prepare($query);
@@ -81,7 +90,8 @@
                         echo "<li><input type='checkbox' value='". $row['idleefgebied'] ."' name='opt". $i ."'>". $row['omschrijving'] ."</li>";
                     }
                 ?>
-            </ul>
+                </ul>
+            </div>
             <input type="submit">
         </form>
     </div>

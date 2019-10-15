@@ -3,9 +3,9 @@
 
     if(isset($_GET['aapsoort'])){
         $value = $_GET['aapsoort'];
-        $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied) WHERE aap.soort LIKE :aapsoort";                     
+        $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied) WHERE aap.soort LIKE :query OR leefgebied.omschrijving LIKE :query";                     
         $stmt = $con->prepare($query);
-        $stmt->bindvalue(':aapsoort', '%'.$value.'%', PDO::PARAM_STR);
+        $stmt->bindvalue(':query', '%'.$value.'%', PDO::PARAM_STR);
     }else{
         $query = "SELECT aap.soort, leefgebied.omschrijving FROM ((aap_has_leefgebied INNER JOIN aap ON aap_has_leefgebied.idaap = aap.idaap) INNER JOIN leefgebied ON aap_has_leefgebied.idleefgebied = leefgebied.idleefgebied)";                    
         $stmt = $con->prepare($query);
