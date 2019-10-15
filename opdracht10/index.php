@@ -5,13 +5,12 @@
         $value = $_GET['aapnaam'];
         unset($_GET['aapnaam']);
         
-        $query = "SELECT * FROM aap WHERE soort LIKE :aapnaam LIMIT 1";
+        $query = "SELECT idaap FROM aap WHERE soort LIKE :aapnaam LIMIT 1";
         $stmt = $con->prepare($query);
         $stmt->bindvalue(':aapnaam', '%' . $value . '%');
         $stmt->execute();
         if($stmt->rowcount() != 0){
             $stmt = $stmt->fetch();
-            $soort = $stmt['soort'];
             $aapid = $stmt['idaap'];
             header("location: edit.php?aapid=" . $aapid);
         }else{

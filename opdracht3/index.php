@@ -57,7 +57,7 @@
                     $stmt->execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
-                        echo "<li><a href='https://www.google.nl/search?q=" . $row['soort'] . "&tbm=isch'>" . $row['soort'] . "</a></li>";
+                        echo "<li><a href='https://www.google.nl/search?q=" . strip_tags($row['soort']) . "&tbm=isch'>" . strip_tags($row['soort']) . "</a></li>";
                     }
                 ?>
             </ul>

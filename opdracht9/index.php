@@ -87,7 +87,7 @@
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
                         $i++;
-                        echo "<li><input type='checkbox' value='". $row['idleefgebied'] ."' name='opt". $i ."'>". $row['omschrijving'] ."</li>";
+                        echo "<li><input type='checkbox' value='". strip_tags($row['idleefgebied']) ."' name='opt". $i ."'>". strip_tags($row['omschrijving']) ."</li>";
                     }
                 ?>
                 </ul>

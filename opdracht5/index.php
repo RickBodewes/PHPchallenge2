@@ -3,12 +3,23 @@ require "../increq/PDOcon.php";
 
 
 if(isset($_GET['leefgebied'])){
+    
     $value = $_GET['leefgebied'];
-    $query = "INSERT INTO leefgebied (omschrijving) VALUES (:habitat)";
+    
+    $query = "SELECT * FROM leefgebied WHERE omschrijving = :omschrijving";
     $stmt = $con->prepare($query);
-    $stmt->bindvalue(':habitat', $value);
+    $stmt->bindvalue(':omschrijving', $value);
     $stmt->execute();
-    header("location: index.php");
+    if($stmt->rowcount() == 0){
+        $value = $_GET['leefgebied'];
+        $query = "INSERT INTO leefgebied (omschrijving) VALUES (:habitat)";
+        $stmt = $con->prepare($query);
+        $stmt->bindvalue(':habitat', $value);
+        $stmt->execute();
+        header("location: index.php");
+    }else{
+        echo "dit leefgebied bestaat al in de database";
+    }
 }
 
     
@@ -83,7 +94,7 @@ if(isset($_GET['leefgebied'])){
                     $stmt->execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
-                        echo "<li><a href='https://www.google.nl/search?q=" . $row['omschrijving'] . "&tbm=isch'>" . $row['omschrijving'] . "</a></li>";
+                        echo "<li><a href='https://www.google.nl/search?q=" . strip_tags($row['omschrijving']) . "&tbm=isch'>" . strip_tags($row['omschrijving']) . "</a></li>";
                     }
                 ?>
             </ul>

@@ -38,7 +38,7 @@
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
                         echo "<tr>";
-                        echo "<td>" . $row['omschrijving'] . "</td>";
+                        echo "<td>" . strip_tags($row['omschrijving']) . "</td>";
                         
                         $query = "SELECT aap.soort FROM aap_has_leefgebied JOIN aap ON aap_has_leefgebied.idaap = aap.idaap WHERE aap_has_leefgebied.idleefgebied = :idleefgebied";     
                         $stmt2 = $con->prepare($query);
@@ -47,7 +47,7 @@
                         $stmt2->setFetchMode(PDO::FETCH_ASSOC);
                         echo "<td>";
                         while($row2 = $stmt2->fetch()){
-                            echo $row2['soort'] . ", ";
+                            echo strip_tags($row2['soort']) . ", ";
                         }
                         echo "</td>";
                         echo "</tr>";
