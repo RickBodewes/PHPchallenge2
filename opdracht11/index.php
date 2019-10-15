@@ -38,8 +38,8 @@
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
                         echo "<tr>";
-                        echo "<td>" . strip_tags($row['omschrijving']) . "</td>";
-                        echo "<td>" . strip_tags($row['COUNT(*)']) . "</td>";
+                        echo "<td>" . htmlentities($row['omschrijving']) . "</td>";
+                        echo "<td>" . htmlentities($row['COUNT(*)']) . "</td>";
                         echo "</tr>";
                     }
                 ?>

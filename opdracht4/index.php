@@ -60,7 +60,7 @@
                     $stmt->execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
-                        echo "<li><a href='https://www.google.nl/search?q=" . strip_tags($row['omschrijving']) . "&tbm=isch'>" . strip_tags($row['omschrijving']) . "</a></li>";
+                        echo "<li><a href='https://www.google.nl/search?q=" . htmlentities($row['omschrijving']) . "&tbm=isch'>" . htmlentities($row['omschrijving']) . "</a></li>";
                     }
                 ?>
             </ul>

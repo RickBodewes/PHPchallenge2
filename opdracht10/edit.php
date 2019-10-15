@@ -86,8 +86,8 @@
 <body>
     <div id="wrapper">
         <form method="post">
-            <input type="hidden" name="aapid" value="<?php echo strip_tags($aapidIn); ?>">
-            <?php echo isset($soort) ? "de aap die u gaat aanpassen " . strip_tags($soort) : "geen aap gevonden"; ?>
+            <input type="hidden" name="aapid" value="<?php echo htmlentities($aapidIn); ?>">
+            <?php echo isset($soort) ? "de aap die u gaat aanpassen " . htmlentities($soort) : "geen aap gevonden"; ?>
             <div id="scrollBox">
                 <ul>
                     <?php
@@ -98,7 +98,7 @@
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     while($row = $stmt->fetch()){
                         $i++;
-                        echo "<li><input type='checkbox' value='". strip_tags($row['idleefgebied']) ."' name='opt". $i ."'>". strip_tags($row['omschrijving']) ."</li>";
+                        echo "<li><input type='checkbox' value='". htmlentities($row['idleefgebied']) ."' name='opt". $i ."'>". htmlentities($row['omschrijving']) ."</li>";
                     }
                 ?>
                 </ul>
@@ -117,7 +117,7 @@
                         $stmt->setFetchMode(PDO::FETCH_ASSOC);
                         while($row = $stmt->fetch()){
                             $i++;
-                            echo "<li>". strip_tags($row['omschrijving']) ."</li>";
+                            echo "<li>". htmlentities($row['omschrijving']) ."</li>";
                         }
                     }
                 ?>
