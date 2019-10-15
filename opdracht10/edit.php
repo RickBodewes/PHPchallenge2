@@ -113,8 +113,7 @@
                         $query = "SELECT leefgebied.omschrijving FROM aap_has_leefgebied INNER JOIN leefgebied ON leefgebied.idleefgebied = aap_has_leefgebied.idleefgebied WHERE aap_has_leefgebied.idaap = :aapid";
                         $stmt = $con->prepare($query);
                         $stmt->bindvalue(":aapid", $_GET['aapid']);
-                        $stmt->execute();
-                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                        $stmt->execute();   
                         $stmt->setFetchMode(PDO::FETCH_ASSOC);
                         while($row = $stmt->fetch()){
                             $i++;
