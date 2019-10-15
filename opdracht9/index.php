@@ -1,9 +1,9 @@
 <?php
     require "../increq/PDOcon.php";
 
-    if(isset($_GET['aapnaam'])){
-        $value = $_GET['aapnaam'];
-        unset($_GET['aapnaam']);
+    if(isset($_POST['aapnaam'])){
+        $value = $_POST['aapnaam'];
+        unset($_POST['aapnaam']);
         
         $query = "SELECT idaap FROM aap WHERE soort = :aapnaam";
         $stmt = $con->prepare($query);
@@ -23,7 +23,7 @@
             $stmt = $stmt->fetch();
             $aapid = $stmt['idaap'];
             
-            foreach($_GET as $habitatID){
+            foreach($_POST as $habitatID){
                 $query = "INSERT INTO aap_has_leefgebied (idaap, idleefgebied) VALUES (:aapid, :leefgebiedid);";
                 $stmt = $con->prepare($query);
                 $stmt->bindvalue(':aapid', $aapid);
@@ -36,7 +36,7 @@
         }
 
     }
-
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,7 +67,7 @@
 
 <body>
     <div id="wrapper">
-        <form method="get">
+        <form method="post">
             <input type="text" name="aapnaam" required>
             <ul>
                 <?php
