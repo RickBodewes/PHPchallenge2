@@ -19,32 +19,6 @@
             align-items: center;
         }
 
-        #list_content {
-            display: flex;
-            justify-content: center;
-        }
-
-        #list_content ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #FF8400;
-            font-family: 'Bangers', 'arial';
-            font-size: 35px;
-            font-weight: 700;
-        }
-
-        #list_content ul li a {
-            text-decoration: none;
-            color: #FF8400;
-            font-family: 'Bangers', 'arial';
-            font-size: 35px;
-            font-weight: 700;
-        }
-
     </style>
 </head>
 
